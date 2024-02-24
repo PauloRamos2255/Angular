@@ -1,0 +1,45 @@
+<h1 style="margin: 20px 0px 0px 40px;">Heroes</h1>
+<br>
+<br>
+<div class="card">
+    <div class="card-header">
+        <i class="fas fa-users me-1"></i> Lista de Heores
+    </div>
+
+    <div class="card-body">
+        <div class="row">
+            <div class="col-12">
+                <button type="button" class="btn btn-primary" (click)="nuevoHeroe()" >Crear Nuevo</button>
+            </div>
+        </div>
+        <hr />
+
+        <table id="tabla" class="display cell-border" style=" width: 100%">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th>Nombre</th>
+                    <th>Seudonimo</th>
+                    <th>Poder</th>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let datos of data; let id=index">
+                      <th scope="row">{{ id+1 }}</th>
+                      <td>{{ datos.nombre }}</td>
+                      <td>{{ datos.seudonimo }}</td>
+                      <td>{{ datos.Poder }}</td>
+                      <td>
+                        <button mat-icon-button color="primary" (click)="seleccionarHeroes(datos.id)">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button  mat-icon-button color="warn" (click)="EliminarHeroe(datos.id,id)">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                      </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

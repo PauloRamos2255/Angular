@@ -1,0 +1,45 @@
+<h1 style="margin: 20px 0px 0px 40px;">Villanos</h1>
+<br>
+<br>
+<div class="card">
+    <div class="card-header">
+        <i class="fas fa-users me-1"></i> Lista de Villanos
+    </div>
+
+    <div class="card-body">
+        <div class="row">
+            <div class="col-12">
+                <button type="button" class="btn btn-primary" (click)="nuevoVillano()" >Crear Nuevo</button>
+            </div>
+        </div>
+        <hr />
+
+        <table id="tabla" class="display cell-border" style=" width: 100%">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th>Nombre</th>
+                    <th>Seudonimo</th>
+                    <th>Objetivo</th>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let datos of data; let id=index">
+                      <th scope="row">{{ id+1 }}</th>
+                      <td>{{ datos.nombre }}</td>
+                      <td>{{ datos.seudonimo }}</td>
+                      <td>{{ datos.objetivo }}</td>
+                      <td>
+                        <button mat-icon-button color="primary" (click)="seleccionarVillano(datos.id)">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button  mat-icon-button color="warn" (click)="EliminarVillano(datos.id,id)">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                      </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

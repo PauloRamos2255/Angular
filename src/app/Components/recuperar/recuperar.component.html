@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <title>Iniciar Sesión</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <!--Stylesheet-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+</head>
+<body>
+
+    <form  (ngSubmit)="Recuperar()" [formGroup]="recuperar">
+        <br>
+        <div style="text-align: center; margin-top: 10px; ">
+            <h1 style="color:black">Recuperar Contraseña</h1>
+        </div>
+        <br>
+        <label class="label" for="username">Email</label>
+        <input type="text"  name="username" placeholder="name@example.com" formControlName="email">
+        <samp *ngIf="recuperar.get('email')?.hasError('required') && recuperar.get('email')?.touched "  class="form-floating text-danger errorLabel"> El <strong class="text-danger">correo</strong> es requerido</samp>
+        <samp *ngIf="recuperar.get('email')?.hasError('email') && recuperar.get('email')?.touched "  class="form-floating text-danger errorLabel"> El <strong class="text-danger">correo</strong> es invalido</samp>
+        <div class="mb-3">
+            <button type="submit">Recuperar</button>
+        </div>
+        
+        <p class="text-center mb-5"><a routerLink="/">Volver</a></p>
+        
+        
+    </form>
+
+</body>
+</html>

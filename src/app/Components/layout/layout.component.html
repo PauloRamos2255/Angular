@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<mat-toolbar class="bg-dark">
+<mat-toolbar-row>
+    <h1 class="text-white">SuperHeores<br></h1>
+    <br>
+    <br>
+    <br>
+    <button mat-icon-button (click)="sidenav.toggle();" class="text-white">
+         <mat-icon>menu</mat-icon>
+    </button>
+</mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container >
+    <mat-sidenav #sidenav opened="true" mode="side" style="width: 200px; height: 100%;" class="bg-dark">
+        <mat-nav-list>
+          <mat-list-item routerLink="/pages/Heroes">
+            <mat-icon mat-list-icon class="text-white">dashboard</mat-icon>
+            <div mat-line class="text-white">Heroes</div>
+          </mat-list-item>
+
+          <mat-list-item routerLink="/pages/Villanos">
+            <mat-icon mat-list-icon class="text-white">dashboard</mat-icon>
+            <div mat-line class="text-white">Villanos</div>
+          </mat-list-item>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div style="height: 90vh;">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+

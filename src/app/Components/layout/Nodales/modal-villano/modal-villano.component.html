@@ -1,0 +1,38 @@
+<h2 mat-dialog-title>{{tituloAccion}}</h2>
+
+<mat-dialog-content>
+    <form   [formGroup]="formularioVillano" >
+        <mat-grid-list cols="1" rowHeight="100px">
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Nombre Completo</mat-label>
+                    <input matInput autocomplete="off" formControlName="nombre" name="info.nombre">
+                    <samp *ngIf="formularioVillano.get('nombre')?.hasError('required') && formularioVillano.get('nombre')?.touched "  class="form-floating text-danger errorLabel"> El <strong class="text-danger">nombre</strong> es requerido</samp>
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Seudonimo</mat-label>
+                    <input matInput autocomplete="off" formControlName="seudonimo" name="info.seudonimo" >
+                    <samp *ngIf="formularioVillano.get('seudonimo')?.hasError('required') && formularioVillano.get('seudonimo')?.touched " 
+                     class="form-floating text-danger errorLabel"> El <strong class="text-danger">seudonimo</strong> es requerido</samp>
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Objetivo</mat-label>
+                    <input matInput autocomplete="off" formControlName="objetivo" name="info.objetivo" >
+                    <samp *ngIf="formularioVillano.get('objetivo')?.hasError('required') && formularioVillano.get('objetivo')?.touched "  class="form-floating text-danger errorLabel"> El <strong class="text-danger">objetivo</strong> es requerido</samp>
+                </mat-form-field>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-raised-button mat-dialog-close color="warn">Volver</button>
+    <button mat-raised-button color="primary"
+        [disabled]="formularioVillano.invalid"
+        (click)="guardarEditar_Villano(id)"
+    >{{botonAccion}}</button>
+</mat-dialog-actions>
